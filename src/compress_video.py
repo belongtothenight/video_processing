@@ -28,7 +28,6 @@ class compress_video():
         # sys.argv[?] delete or recycle old video ("-del" or "-recycle")
         self.file_name = sys.argv[0]
         self.file_path = sys.argv[1]
-        self.record_path = os.path.dirname(self.file_path) + "\\record.txt"
         self.log_remove = False
         self.shell = False
         self.del_old = False
@@ -47,11 +46,13 @@ class compress_video():
             print('log_remove: ' + str(self.log_remove))
             print('shell: ' + str(self.shell))
             print('del_old: ' + str(self.del_old))
-        # clear cmd/terminal
+        # op based parameters
         if self.shell:
             os.system('clear')
+            self.record_path = os.path.dirname(self.file_path) + "/record.txt"
         else:
             os.system('cls')
+            self.record_path = os.path.dirname(self.file_path) + "\\record.txt"
 
     def read_log(self):
         # get the log file contents
@@ -169,7 +170,7 @@ class compress_video():
 
             # calculate compression ratio / size reduction
             l = '{0} >> {1} >> ratio: {2}% >> saved {3}MB >> compressed {4}'.format(
-                self.file_name, currenttime(), format(self.postpsize/self.prepsize*100, '.4f'), format((self.prepsize-self.postpsize)/(2**23), '10.2f'), os.path.basename(self.video_path))
+                self.file_name, currenttime(), format(self.postpsize/self.prepsize*100, '3.4f'), format((self.prepsize-self.postpsize)/(2**23), '10.2f'), os.path.basename(self.video_path))
             print(l)
             with open(self.record_path, 'a') as f:
                 f.write(l + '\n')
