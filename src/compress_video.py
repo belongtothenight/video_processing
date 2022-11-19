@@ -72,7 +72,7 @@ class compress_video():
             self.video_path = str(Path(self.video_path))
             self.nvideo_path = str(Path(self.nvideo_path))
             print('{0} >> {1} >> progress: {2}/{3} {4}%'.format(
-                self.file_name, time(), self.progress, self.total, round(self.progress/self.total*100, 2)))
+                self.file_name, time(), self.progress, self.total, format(self.progress/self.total*100, '.2f')))
             print('{0} >> {1} >> video_path: {2}'.format(
                 self.file_name, time(), self.video_path))
             print('{0} >> {1} >> temp_path: {2}'.format(
@@ -143,7 +143,7 @@ class compress_video():
 
             # calculate compression ratio / size reduction
             l = '{0} >> {1} >> ratio: {2}% >> saved {3}GB >> compressed {4}'.format(
-                self.file_name, time(), format(self.postpsize/self.prepsize, '.4f'), (self.prepsize-self.postpsize)/(2**33), os.path.basename(self.video_path))
+                self.file_name, time(), format(self.postpsize/self.prepsize, '.4f'), format((self.prepsize-self.postpsize)/(2**33), '.4f'), os.path.basename(self.video_path))
             print(l)
             with open(self.record_path, 'a') as f:
                 f.write(l + '\n')
