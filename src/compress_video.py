@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 from time import sleep
 from datetime import datetime
-os.system('cls')
 
 '''
 Requirements:
@@ -48,6 +47,11 @@ class compress_video():
             print('log_remove: ' + str(self.log_remove))
             print('shell: ' + str(self.shell))
             print('del_old: ' + str(self.del_old))
+        # clear cmd/terminal
+        if self.shell:
+            os.system('clear')
+        else:
+            os.system('cls')
 
     def read_log(self):
         # get the log file contents
@@ -93,6 +97,13 @@ class compress_video():
                 continue
             print('{0} >> {1} >> processing {2}'.format(
                 self.file_name, time(), os.path.basename(self.video_path)))
+
+            # get video duration
+            ffprobe_cmd = 'ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "{0}"'.format(
+                self.video_path)
+            duration = subprocess.check_output(ffprobe_cmd, shell=self.shell)
+            print('{0} >> {1} >> video duration: {2}'.format(
+                self.file_name, time(), duration.decode('utf-8')))
 
             # get video size pre-compression
             ffprobe_cmd = 'ffprobe -v error -show_entries format=size -of default=nokey=1:noprint_wrappers=1 "{0}"'.format(
