@@ -10,9 +10,9 @@ This is the detail of each python files.
 
 ### execute command
 
-1. Windows Commend: python "full path of this file" "full path of file list file"
+1. Windows Commend: python "full path of this file" "full path of file list file"<br>
 EX: python compress_video.py C:\Users\dachu\Videos\Minecraft\mp4_files_YT_test1.txt
-2. Linux Commend: python "full path of this file" "full path of file list file" -linux
+2. Linux Commend: python "full path of this file" "full path of file list file" -linux<br>
 EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 
 ### command parameter
