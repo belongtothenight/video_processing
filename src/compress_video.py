@@ -121,7 +121,7 @@ class compress_video():
                 cmd_line = p.stdout.readline()
                 if not cmd_line:
                     break
-                print(cmd_line.decode('utf-8'))
+                print(cmd_line.decode('utf-8'), end='\r')
             print('{0} >> {1} >> compressed {2}'.format(
                 self.file_name, time(), os.path.basename(self.nvideo_path)))
 
