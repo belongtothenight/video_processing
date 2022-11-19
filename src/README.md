@@ -8,6 +8,8 @@ This is the detail of each python files.
 
 ## <a name="1"></a>compress_video.py
 
+Only tested with mp4 videos for now.
+
 ### requirement
 
 1. windows: ffmpeg, cmdutils
