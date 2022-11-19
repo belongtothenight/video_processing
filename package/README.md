@@ -4,21 +4,23 @@ This is the detail of each python files.
 
 ## AnchorLink
 
-1. [compress_video.py](#1)
+1. [compress_video.exe](#1)
 
 ## <a name="1"></a>compress_video.exe
 
+This file is not fully tested.
+
 ### requirement
 
-1. windows: ffmpeg, cmdutils
-2. linux: ffmpeg
+1. windows: ?
+2. linux: ?
 
 ### execute command
 
-1. Windows Commend: python "full path of this file" "full path of file list file"<br>
-EX: python compress_video.py C:\Users\dachu\Videos\Minecraft\mp4_files_YT_test1.txt
-2. Linux Commend: python "full path of this file" "full path of file list file" -linux<br>
-EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
+1. Windows Commend: ?<br>
+EX: ?
+2. Linux Commend: ?<br>
+EX: ?
 
 ### command parameter
 

@@ -20,6 +20,9 @@ def time():
 
 class compress_video():
     def __init__(self, show):
+        if len(sys.argv) < 2:
+            print('Please provide a file name.')
+            sys.exit()
         # sys.argv[1] is the path and name to the video file log
         # sys.argv[?] is whether to update file log or not ("-remove_log" to remove)
         # sys.argv[?] windows or linux ("-windows" or "-linux")
