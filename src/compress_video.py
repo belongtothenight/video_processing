@@ -160,7 +160,8 @@ class compress_video():
             print()
 
         # end
-        print('{0} >> {1} >> finished'.format(self.file_name, time()))
+        print('\n{0} >> {1} >> finished compressing all designated files.'.format(
+            self.file_name, time()))
 
 
 # main
