@@ -13,8 +13,8 @@ Only tested with mp4 videos for now.
 
 ### requirement
 
-1. windows: python, ffmpeg, cmdutils
-2. linux: python, ffmpeg
+1. windows: python, python-send2trash, ffmpeg
+2. linux: python, python-send2trash, ffmpeg
 
 ### execute command
 
@@ -30,6 +30,10 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 | -windows / -linux | operation system                                       |
 | -remove_log       | remove video path from txt after compressing the video |
 | -del / -recycle   | delete or recycle old video                            |
+
+### Bug
+
+1. "-del" on windows system can't be executed.
 
 ## <a name="2"></a>list_file.py
 

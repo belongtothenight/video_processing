@@ -4,6 +4,7 @@ import os
 import time
 from pathlib import Path
 from datetime import datetime
+from send2trash import send2trash
 
 '''
 Requirements:
@@ -139,17 +140,21 @@ class compress_video():
                 self.file_name, currenttime(), os.path.basename(self.nvideo_path)))
 
             # recycle the old video
-            if self.shell:
-                if self.del_old:
-                    recycle_cmd = 'rm "{0}"'.format(self.video_path)
-                else:
-                    recycle_cmd = 'gio trash "{0}"'.format(self.video_path)
+            # if self.shell:
+            #     if self.del_old:
+            #         recycle_cmd = 'rm "{0}"'.format(self.video_path)
+            #     else:
+            #         recycle_cmd = 'gio trash "{0}"'.format(self.video_path)
+            # else:
+            #     if self.del_old:
+            #         recycle_cmd = 'del "{0}"'.format(self.video_path)
+            #     else:
+            #         recycle_cmd = 'recycle "{0}"'.format(self.video_path)
+            # subprocess.call(recycle_cmd, shell=self.shell)
+            if self.del_old:
+                os.remove(self.video_path)
             else:
-                if self.del_old:
-                    recycle_cmd = 'del "{0}"'.format(self.video_path)
-                else:
-                    recycle_cmd = 'recycle "{0}"'.format(self.video_path)
-            subprocess.call(recycle_cmd, shell=self.shell)
+                send2trash(self.video_path)
             if self.del_old:
                 print('{0} >> {1} >> deleted {2}'.format(
                     self.file_name, currenttime(), os.path.basename(self.video_path)))
