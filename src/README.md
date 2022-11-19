@@ -5,6 +5,7 @@ This is the detail of each python files.
 ## AnchorLink
 
 1. [compress_video.py](#1)
+2. [list_file.py](#2)
 
 ## <a name="1"></a>compress_video.py
 
@@ -12,8 +13,8 @@ Only tested with mp4 videos for now.
 
 ### requirement
 
-1. windows: ffmpeg, cmdutils
-2. linux: ffmpeg
+1. windows: python, ffmpeg, cmdutils
+2. linux: python, ffmpeg
 
 ### execute command
 
@@ -29,3 +30,13 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 | -windows / -linux | operation system                                       |
 | -remove_log       | remove video path from txt after compressing the video |
 | -del / -recycle   | delete or recycle old video                            |
+
+## <a name="2"></a>list_file.py
+
+### requirement
+
+python
+
+### execute command
+
+python list_file.py
