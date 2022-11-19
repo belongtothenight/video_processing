@@ -19,7 +19,7 @@ def time():
 
 
 class compress_video():
-    def __init__(self, show):
+    def __init__(self, show=False):
         if len(sys.argv) < 2:
             print('Please provide a file name.')
             sys.exit()
@@ -169,7 +169,7 @@ class compress_video():
 
 # main
 if __name__ == '__main__':
-    cv = compress_video(True)
+    cv = compress_video()
     cv.read_log()
     cv.remove_identical_lines()
     cv.compress()
