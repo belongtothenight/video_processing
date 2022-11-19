@@ -150,11 +150,13 @@ class compress_video():
             print(l)
             with open(self.record_path, 'a') as f:
                 f.write(l + '\n')
+
             # remove the line from the log file
             try:
-                self.lines.remove(self.video_path + '\n')
-            except ValueError:
-                self.lines.remove(self.video_path)
+                self.lines.pop(0)
+            except Exception as e:
+                print('{0} >> {1} >> exception: {2}'.format(
+                    self.file_name, time(), e))
             if self.log_remove:
                 with open(self.file_path, 'w') as f:
                     f.writelines(self.lines)
