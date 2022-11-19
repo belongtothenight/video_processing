@@ -31,10 +31,6 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 | -remove_log       | remove video path from txt after compressing the video |
 | -del / -recycle   | delete or recycle old video                            |
 
-### Bug
-
-1. "-del" on windows system can't be executed.
-
 ## <a name="2"></a>list_file.py
 
 ### requirement
