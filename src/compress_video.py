@@ -108,6 +108,14 @@ class compress_video():
             print('{0} >> {1} >> video duration: {2}'.format(
                 self.file_name, currenttime(), duration))
 
+            # get video frame count
+            ffprobe_cmd = 'ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 "{0}"'.format(
+                self.video_path)
+            frame_count = ((subprocess.check_output(
+                ffprobe_cmd, shell=self.shell)).decode('utf-8')).replace('\r\n', '')
+            print('{0} >> {1} >> video frame count: {2}'.format(
+                self.file_name, currenttime(), frame_count))
+
             # get video size pre-compression
             ffprobe_cmd = 'ffprobe -v error -show_entries format=size -of default=nokey=1:noprint_wrappers=1 "{0}"'.format(
                 self.video_path)
