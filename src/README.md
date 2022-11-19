@@ -8,6 +8,11 @@ This is the detail of each python files.
 
 ## <a name="1"></a>compress_video.py
 
+### requirement
+
+1. windows: ffmpeg, cmdutils
+2. linux: ffmpeg
+
 ### execute command
 
 1. Windows Commend: python "full path of this file" "full path of file list file"<br>
