@@ -142,13 +142,16 @@ class compress_video():
                 ffprobe_cmd, shell=self.shell)).decode('utf-8'))
 
             # calculate compression ratio / size reduction
-            l = '{0} >> {1} >> ratio: {2}% >> saved {3}GB >> compressed {4}'.format(
-                self.file_name, time(), format(self.postpsize/self.prepsize, '.4f'), format((self.prepsize-self.postpsize)/(2**33), '.4f'), os.path.basename(self.video_path))
+            l = '{0} >> {1} >> ratio: {2}% >> saved {3}MB >> compressed {4}'.format(
+                self.file_name, time(), format(self.postpsize/self.prepsize, '.4f'), format((self.prepsize-self.postpsize)/(2**23), '10.2f'), os.path.basename(self.video_path))
             print(l)
             with open(self.record_path, 'a') as f:
                 f.write(l + '\n')
             # remove the line from the log file
-            self.lines.remove(self.video_path + '\n')
+            try:
+                self.lines.remove(self.video_path + '\n')
+            except ValueError:
+                self.lines.remove(self.video_path)
             if self.log_remove:
                 with open(self.file_path, 'w') as f:
                     f.writelines(self.lines)
