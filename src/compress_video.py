@@ -8,6 +8,7 @@ from pathlib import Path
 from datetime import datetime
 from send2trash import send2trash
 
+
 def currenttime():
     now = datetime.now()
     return now.strftime("%Y/%m/%d:%H:%M:%S")
@@ -256,7 +257,7 @@ class compress_video():
             calculate ETA
             '''
             etas = sum(self.eta)/self.progress*self.total
-            eta = time.strftime("%H:%M:%S%z", time.gmtime(etas))
+            eta = time.strftime("%H:%M:%S", time.gmtime(etas))
             if sum(self.eta) == 0:
                 eta = 'N/A'
             if self.h0:
@@ -273,7 +274,7 @@ class compress_video():
             duration = ((subprocess.check_output(
                 ffprobe_cmd, shell=self.shell)).decode('utf-8')).replace('\r\n', '')
             duration = time.strftime(
-                '%H:%M:%S%z', time.gmtime(float(duration)))
+                '%H:%M:%S', time.gmtime(float(duration)))
             if self.h0:
                 print('{0} >> {1} >> duration: {2}'.format(
                     self.file_name, currenttime(), duration))
