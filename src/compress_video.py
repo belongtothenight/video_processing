@@ -363,7 +363,7 @@ class compress_video():
             elif percentage < 100:
                 percentage = ' ' + str(format(percentage, '.4f'))
             else:
-                percentage = str(format(percentage, '.2f'))
+                percentage = str(format(percentage, '.4f'))
             saved = format((self.prepsize-self.postpsize)/(2**23), '10.4f')
             if self.h0 and self.h1:
                 l = '{0} >> {1} >> ratio: {2}% >> saved {3}MB >> compressed {4}'.format(
