@@ -31,6 +31,12 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 | -remove_log       | remove video path from txt after compressing the video |
 | -del / -recycle   | delete or recycle old video                            |
 
+### possible features
+
+1. hide all files path info
+2. add ETA
+3. restructure code
+
 ## <a name="2"></a>list_file.py
 
 ### requirement
