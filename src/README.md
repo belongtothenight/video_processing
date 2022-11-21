@@ -32,12 +32,6 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 |    -del     |    recycle     | delete or recycle old video                            |
 |     -h0     |  display all   | hidden file info + length + ETA                        |
 |     -h1     |  display all   | hidden file info                                       |
-
-### possible features
-
-1. hide all files path info
-2. add ETA
-
 ## <a name="2"></a>list_file.py
 
 ### requirement
