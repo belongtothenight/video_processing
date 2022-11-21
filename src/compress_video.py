@@ -25,6 +25,7 @@ class compress_video():
         # sys.argv[?] delete or recycle old video (delete: "-del")
         # sys.argv[?] hidden file info + length + ETA ("-h0")
         # sys.argv[?] hidden file info ("-h1")
+        # sys.argv[?] auto clear screen ("-ac")
         self.file_name = sys.argv[0]
         self.file_path = sys.argv[1]
         self.log_remove = False
@@ -32,6 +33,7 @@ class compress_video():
         self.del_old = False
         self.h0 = False
         self.h1 = False
+        self.ac = False
         if '-remove_log' in sys.argv:
             self.log_remove = True
         if '-linux' in sys.argv:
@@ -42,6 +44,8 @@ class compress_video():
             self.h0 = True
         if '-h1' in sys.argv:
             self.h1 = True
+        if '-ac' in sys.argv:
+            self.ac = True
         self.h0 = not self.h0
         self.h1 = not self.h1
         if show:
@@ -388,10 +392,11 @@ class compress_video():
                     f.writelines(self.lines)
             if self.progress >= self.total:
                 return 1
-            if self.shell:
-                os.system('clear')
-            else:
-                os.system('cls')
+            if self.ac:
+                if self.shell:
+                    os.system('clear')
+                else:
+                    os.system('cls')
 
         self.eta = [0]
         self.progress = 0
