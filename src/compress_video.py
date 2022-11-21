@@ -14,6 +14,24 @@ def currenttime():
     return now.strftime("%Y/%m/%d:%H:%M:%S")
 
 
+def s2strdhms(s):
+    d, s = divmod(s, 86400)
+    h, s = divmod(s, 3600)
+    m, s = divmod(s, 60)
+    d = int(d)
+    h = int(h)
+    m = int(m)
+    s = int(s)
+    if s < 10:
+        s = "0" + str(s)
+    if m < 10:
+        m = "0" + str(m)
+    if h < 10:
+        h = "0" + str(h)
+    tstring = '{0}:{1}:{2}:{3}'.format(d, h, m, s)
+    return tstring
+
+
 class compress_video():
     def __init__(self, show=True):
         if len(sys.argv) < 2:
@@ -282,12 +300,14 @@ class compress_video():
             calculate ETA & display uptime
             '''
             time_temp = timeit.default_timer() - self.start_time
-            uptime = time.strftime("%H:%M:%S", time.gmtime(time_temp))
+            # uptime = time.strftime("%H:%M:%S", time.gmtime(time_temp))
+            uptime = s2strdhms(time_temp)
             if self.progress == 1:
                 eta = 'N/A'
             else:
                 eta = time_temp/(self.progress-1)*self.total
-                eta = time.strftime("%H:%M:%S", time.gmtime(eta))
+                # eta = time.strftime("%H:%M:%S", time.gmtime(eta))
+                eta = s2strdhms(eta)
             if self.h0:
                 print('{0} >> {1} >> uptime: {2}'.format(
                     self.file_name, currenttime(), uptime))
