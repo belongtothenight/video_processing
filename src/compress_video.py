@@ -300,13 +300,11 @@ class compress_video():
             calculate ETA & display uptime
             '''
             time_temp = timeit.default_timer() - self.start_time
-            # uptime = time.strftime("%H:%M:%S", time.gmtime(time_temp))
             uptime = s2strdhms(time_temp)
             if self.progress == 1:
                 eta = 'N/A'
             else:
                 eta = time_temp/(self.progress-1)*self.total
-                # eta = time.strftime("%H:%M:%S", time.gmtime(eta))
                 eta = s2strdhms(eta)
             if self.h0:
                 print('{0} >> {1} >> uptime: {2}'.format(
@@ -323,8 +321,7 @@ class compress_video():
                 self.video_path)
             duration = ((subprocess.check_output(
                 ffprobe_cmd, shell=self.shell)).decode('utf-8')).replace('\r\n', '')
-            duration = time.strftime(
-                '%H:%M:%S', time.gmtime(float(duration)))
+            duration = s2strdhms(float(duration))
             if self.h0:
                 print('{0} >> {1} >> duration: {2}'.format(
                     self.file_name, currenttime(), duration))
