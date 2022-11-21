@@ -387,7 +387,10 @@ class compress_video():
                     f.writelines(self.lines)
             if self.progress >= self.total:
                 return 1
-            os.system('cls')
+            if self.shell:
+                os.system('clear')
+            else:
+                os.system('cls')
 
         self.eta = [0]
         self.progress = 0
