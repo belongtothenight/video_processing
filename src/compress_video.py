@@ -8,13 +8,6 @@ from pathlib import Path
 from datetime import datetime
 from send2trash import send2trash
 
-'''
-Requirements:
-Windows: ffmpeg, cmdutils
-Linux: ffmpeg
-'''
-
-
 def currenttime():
     now = datetime.now()
     return now.strftime("%Y/%m/%d:%H:%M:%S")
