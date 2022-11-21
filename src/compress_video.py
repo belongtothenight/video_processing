@@ -278,10 +278,13 @@ class compress_video():
             '''
             calculate ETA
             '''
-            etas = sum(self.eta)/self.progress*self.total
-            eta = time.strftime("%H:%M:%S", time.gmtime(etas))
-            if sum(self.eta) == 0:
+            if self.progress == 1:
                 eta = 'N/A'
+            else:
+                eta = sum(self.t)/(self.progress-1)*self.total
+                eta = (sum(self.eta) + eta)/(self.progress-1)
+                self.eta.append(eta)
+                eta = time.strftime("%H:%M:%S", time.gmtime(eta))
             if self.h0:
                 print('{0} >> {1} >> ETA: {2}'.format(
                     self.file_name, currenttime(), eta))
@@ -416,6 +419,7 @@ class compress_video():
                 else:
                     os.system('cls')
 
+        self.t = [0]
         self.eta = [0]
         self.progress = 0
         self.total = len(self.lines)
@@ -438,7 +442,7 @@ class compress_video():
             if f12() == 1:
                 break
             stop = timeit.default_timer()
-            self.eta.append(stop - start)
+            self.t.append(stop - start)
 
         # end
         print('\n{0} >> {1} >> finished compressing all designated files.'.format(
