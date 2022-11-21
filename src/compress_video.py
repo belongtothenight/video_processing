@@ -281,15 +281,13 @@ class compress_video():
             '''
             calculate ETA & display uptime
             '''
+            time_temp = timeit.default_timer() - self.start_time
+            uptime = time.strftime("%H:%M:%S", time.gmtime(time_temp))
             if self.progress == 1:
                 eta = 'N/A'
             else:
-                eta = sum(self.t)/(self.progress-1)*self.total
-                eta = (sum(self.eta) + eta)/(self.progress-1)
-                self.eta.append(eta)
+                eta = time_temp/(self.progress-1)*self.total
                 eta = time.strftime("%H:%M:%S", time.gmtime(eta))
-            uptime = time.strftime("%H:%M:%S", time.gmtime(
-                timeit.default_timer()-self.start_time))
             if self.h0:
                 print('{0} >> {1} >> uptime: {2}'.format(
                     self.file_name, currenttime(), uptime))
@@ -427,12 +425,9 @@ class compress_video():
                 else:
                     os.system('cls')
 
-        self.t = [0]
-        self.eta = [0]
         self.progress = 0
         self.total = len(self.lines)
         while True:
-            start = timeit.default_timer()
             self.progress += 1
             if f1() == 1:
                 break
@@ -449,8 +444,6 @@ class compress_video():
             f11()
             if f12() == 1:
                 break
-            stop = timeit.default_timer()
-            self.t.append(stop - start)
 
         # end
         print('\n{0} >> {1} >> finished compressing all designated files.'.format(
