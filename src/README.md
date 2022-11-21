@@ -25,17 +25,18 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 
 ### command parameter
 
-| param             | description                                            |
-| ----------------- | ------------------------------------------------------ |
-| -windows / -linux | operation system                                       |
-| -remove_log       | remove video path from txt after compressing the video |
-| -del / -recycle   | delete or recycle old video                            |
+|    param    |    default     | description                                            |
+| :---------: | :------------: | ------------------------------------------------------ |
+|   -linux    |    windows     | operation system                                       |
+| -remove_log | doesn't remove | remove video path from txt after compressing the video |
+|    -del     |    recycle     | delete or recycle old video                            |
+|     -h0     |  display all   | hidden file info + length + ETA                        |
+|     -h1     |  display all   | hidden file info                                       |
 
 ### possible features
 
 1. hide all files path info
 2. add ETA
-3. restructure code
 
 ## <a name="2"></a>list_file.py
 
