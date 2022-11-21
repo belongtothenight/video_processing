@@ -15,7 +15,7 @@ def currenttime():
 
 
 class compress_video():
-    def __init__(self, show=False):
+    def __init__(self, show=True):
         if len(sys.argv) < 2:
             print('Please provide a file name.')
             sys.exit()
@@ -26,6 +26,8 @@ class compress_video():
         # sys.argv[?] hidden file info + length + ETA ("-h0")
         # sys.argv[?] hidden file info ("-h1")
         # sys.argv[?] auto clear screen ("-ac")
+
+        # initialize variables
         self.file_name = sys.argv[0]
         self.file_path = sys.argv[1]
         self.log_remove = False
@@ -34,6 +36,8 @@ class compress_video():
         self.h0 = False
         self.h1 = False
         self.ac = False
+
+        # check for parameters
         if '-remove_log' in sys.argv:
             self.log_remove = True
         if '-linux' in sys.argv:
@@ -46,22 +50,36 @@ class compress_video():
             self.h1 = True
         if '-ac' in sys.argv:
             self.ac = True
+
+        # op based parameters
+        if self.shell:
+            self.record_path = os.path.dirname(self.file_path) + "/record.txt"
+        else:
+            self.record_path = os.path.dirname(self.file_path) + "\\record.txt"
+
+        # opposite of parameters
         self.h0 = not self.h0
         self.h1 = not self.h1
+
+        # display parameters
         if show:
+            print('Parameters status:\n')
             print('file_name: ' + self.file_name)
             print('file_path: ' + self.file_path)
             print('record_path: ' + self.record_path)
-            print('log_remove: ' + str(self.log_remove))
-            print('shell: ' + str(self.shell))
-            print('del_old: ' + str(self.del_old))
-        # op based parameters
-        if self.shell:
-            os.system('clear')
-            self.record_path = os.path.dirname(self.file_path) + "/record.txt"
-        else:
-            os.system('cls')
-            self.record_path = os.path.dirname(self.file_path) + "\\record.txt"
+            print('-log_remove: ' + str(self.log_remove))
+            print('-linux: ' + str(self.shell))
+            print('-del: ' + str(self.del_old))
+            print('-h0: ' + str(self.h0))
+            print('-h1: ' + str(self.h1))
+            print('-ac: ' + str(self.ac))
+            print('\n')
+            if input('Press [y] to continue...') != 'y':
+                sys.exit()
+            if self.shell:
+                os.system('clear')
+            else:
+                os.system('cls')
 
     def read_log(self):
         # get the log file contents
