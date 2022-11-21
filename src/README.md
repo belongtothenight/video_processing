@@ -30,7 +30,7 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 |   -linux    |       windows        | operation system                                       |
 | -remove_log |    doesn't remove    | remove video path from txt after compressing the video |
 |    -del     |       recycle        | delete or recycle old video                            |
-|     -h0     |     display all      | hidden file info + length + ETA                        |
+|     -h0     |     display all      | hidden file info + length + ETA + Uptime               |
 |     -h1     |     display all      | hidden file info                                       |
 |     -ac     | doesn't clear screen | auto clear screen                                      |
 

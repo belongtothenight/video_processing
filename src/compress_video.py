@@ -81,6 +81,9 @@ class compress_video():
             else:
                 os.system('cls')
 
+        # start the timer
+        self.start_time = timeit.default_timer()
+
     def read_log(self):
         # get the log file contents
         with open(self.file_path, 'r', encoding='utf-8') as f:
@@ -276,7 +279,7 @@ class compress_video():
 
         def f3():
             '''
-            calculate ETA
+            calculate ETA & display uptime
             '''
             if self.progress == 1:
                 eta = 'N/A'
@@ -285,7 +288,11 @@ class compress_video():
                 eta = (sum(self.eta) + eta)/(self.progress-1)
                 self.eta.append(eta)
                 eta = time.strftime("%H:%M:%S", time.gmtime(eta))
+            uptime = time.strftime("%H:%M:%S", time.gmtime(
+                timeit.default_timer()-self.start_time))
             if self.h0:
+                print('{0} >> {1} >> uptime: {2}'.format(
+                    self.file_name, currenttime(), uptime))
                 print('{0} >> {1} >> ETA: {2}'.format(
                     self.file_name, currenttime(), eta))
             pass
