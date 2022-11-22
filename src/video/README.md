@@ -1,4 +1,4 @@
-# SRC
+# src/VIDEO
 
 This is the detail of each python files.
 
