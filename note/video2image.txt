@@ -1,0 +1,8 @@
+1 image per second
+ffmpeg -i input.mp4 -vf fps=1 out%d.png
+
+1 image per minute
+ffmpeg -i test.mp4 -vf fps=1/60 thumb%04d.png
+
+1 image per 10 minute
+ffmpeg -i test.mp4 -vf fps=1/600 thumb%04d.png
