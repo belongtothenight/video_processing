@@ -45,6 +45,14 @@ class compress_video():
         # sys.argv[?] hidden file info ("-h1")
         # sys.argv[?] auto clear screen ("-ac")
 
+        # check parameter error
+        possible_parameters = ['-remove_log',
+                               '-linux', '-del', '-h0', '-h1', '-ac']
+        for i in range(2, len(sys.argv)):
+            if sys.argv[i] not in possible_parameters:
+                print('\nParameter error.')
+                sys.exit()
+
         # initialize variables
         self.file_name = sys.argv[0]
         self.file_path = sys.argv[1]
@@ -75,10 +83,6 @@ class compress_video():
         else:
             self.record_path = os.path.dirname(self.file_path) + "\\record.txt"
 
-        # opposite of parameters
-        self.h0 = not self.h0
-        self.h1 = not self.h1
-
         # display parameters
         if show:
             print('Parameters status:\n')
@@ -92,12 +96,17 @@ class compress_video():
             print('-h1: ' + str(self.h1))
             print('-ac: ' + str(self.ac))
             print('\n')
-            if input('Press [y] to continue...') != 'y':
+            if input('Enter [y] to continue... ') != 'y':
+                print('\nExit.')
                 sys.exit()
             if self.shell:
                 os.system('clear')
             else:
                 os.system('cls')
+
+        # opposite of parameters
+        self.h0 = not self.h0
+        self.h1 = not self.h1
 
         # start the timer
         self.start_time = timeit.default_timer()
