@@ -275,8 +275,9 @@ class compress_video():
                     self.file_name, currenttime()))
                 return 1
             self.video_path = self.video_path.replace('\n', '')
-            self.nvideo_path = self.video_path.replace(
-                '.mp4', '_temp.mp4')
+            filtype = os.path.splitext(self.video_path)[1]
+            filename = os.path.splitext(self.video_path)[0] + '_temp'
+            self.nvideo_path = filename + filtype
             self.video_path = str(Path(self.video_path))
             self.nvideo_path = str(Path(self.nvideo_path))
             print('{0} >> {1} >> progress: {2}/{3} {4}%'.format(
