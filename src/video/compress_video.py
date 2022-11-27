@@ -313,7 +313,7 @@ class compress_video():
             if self.progress == 1:
                 eta = 'N/A'
             else:
-                eta = time_temp/(self.progress-1)*self.total
+                eta = time_temp/(self.progress-1)*self.total - time_temp
                 eta = s2strdhms(eta)
             if self.h0:
                 print('{0} >> {1} >> uptime: {2}'.format(
