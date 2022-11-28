@@ -34,6 +34,10 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 |     -h1     |     display all      | hidden file info                                       |
 |     -ac     | doesn't clear screen | auto clear screen                                      |
 
+### Improvement
+
+Add a central file database to keep record of processed files.
+
 ## <a name="2"></a>list_file.py
 
 ### requirement
