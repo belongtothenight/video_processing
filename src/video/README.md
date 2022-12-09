@@ -29,12 +29,14 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 | :---------: | :------------------: | ------------------------------------------------------ |
 |   -linux    |       windows        | operation system                                       |
 | -remove_log |    doesn't remove    | remove video path from txt after compressing the video |
-|    -del     |       recycle        | delete or recycle old video                            |
+|    -del     |       recycle        | delete(permanent) or recycle(temporary) old video      |
 |     -h0     |     display all      | hidden file info + length + ETA + Uptime               |
 |     -h1     |     display all      | hidden file info                                       |
 |     -ac     | doesn't clear screen | auto clear screen                                      |
 
 ### Installation
+
+If it's your first time using this, copy some of your video files to test them out with different params.
 
 1. windows
     1. Download "ffmpeg" via <https://ffmpeg.org/download.html>, and add ffmpeg to system variable.
