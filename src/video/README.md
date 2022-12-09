@@ -88,7 +88,7 @@ Sample file structure:<br>
 D:<br>
 |-1.mp4<br>
 |-videos<br>
-    |-2.mp4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|-2.mp4<br>
 
 Sample export txt (mp4_files.txt) content:
 
