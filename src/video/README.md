@@ -9,7 +9,7 @@ This is the detail of each python files.
 
 ## <a name="1"></a>compress_video.py
 
-Only tested with mp4 videos for now.
+Batch re-encode video files to reduce their size.
 
 ### requirement
 
@@ -42,15 +42,15 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
     3. Download Python.
     4. Type "pip install send2trash" to install required library.
     5. Create a list of video files in txt format like the example below.
-    6. Use the above mentioned "execute command" to start executing.
+    6. Use the above mentioned "execute command" in cmd to start executing.
 2. linux
     1. Use terminal to install ffmpeg
     2. Use terminal to install python
     3. Use terminal to install python library "send2trash"
     4. Create a list of video files in txt format like the example below.
-    5. Use the above mentioned "execute command" to start executing.
+    5. Use the above mentioned "execute command" in terminal to start executing.
 
-list of video files example (txt):
+list of video files example (test.txt):
 
 ```
 D:/1.mp4
@@ -58,19 +58,44 @@ D:/2.mp4
 D:/3.mp4
 ```
 
+execute command: python compress_video.py test.txt
+
 ### possible improvement
 
 Add a central file database to keep record of processed files.
 
 ## <a name="2"></a>list_file.py
 
+Export a txt file containing filepath of files with specified format.
+
 ### requirement
 
 python
 
-### execute command
+### execution
 
-python list_file.py
+Execute with: "python list_file.py"
+
+After execution, answer the questions:
+
+| Question                                       | Sample input     |
+| ---------------------------------------------- | ---------------- |
+| Enter the path to the root of exporting files: | D:/              |
+| Enter the path to export file log:             | D:/mp4_files.txt |
+| Enter the format of files to export:           | mp4              |
+
+Sample file structure:
+D:
+|-1.mp4
+|-videos
+    |-2.mp4
+
+Sample export txt (mp4_files.txt) content:
+
+```
+D:/1.mp4
+D:/videos/2.mp4
+```
 
 ### possible improvement
 
