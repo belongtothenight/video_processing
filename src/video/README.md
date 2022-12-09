@@ -84,11 +84,11 @@ After execution, answer the questions:
 | Enter the path to export file log:             | D:/mp4_files.txt |
 | Enter the format of files to export:           | mp4              |
 
-Sample file structure:
-D:
-|-1.mp4
-|-videos
-    |-2.mp4
+Sample file structure:<br>
+D:<br>
+|-1.mp4<br>
+|-videos<br>
+    |-2.mp4<br>
 
 Sample export txt (mp4_files.txt) content:
 
