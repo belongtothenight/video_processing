@@ -19,7 +19,7 @@ Batch re-encode video files to reduce their size.
 ### execute command
 
 1. Windows Commend: python "full path of this file" "full path of file list file"<br>
-EX: python compress_video.py %userprofile%\Videos\Minecraft\mp4_files_YT_test1.txt
+EX: python compress_video.py %userprofile%\Videos\test_files.txt
 2. Linux Commend: python "full path of this file" "full path of file list file" -linux<br>
 EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 
