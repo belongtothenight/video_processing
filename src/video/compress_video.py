@@ -321,7 +321,6 @@ class compress_video():
                     self.file_name, currenttime(), uptime))
                 print('{0} >> {1} >> ETA: {2}'.format(
                     self.file_name, currenttime(), eta))
-            pass
 
         def f4():
             '''
