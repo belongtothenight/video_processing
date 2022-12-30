@@ -102,3 +102,7 @@ D:/videos/2.mp4
 ### possible improvement
 
 Add an option of file create/modify date, and list out all files after(before?) that.
+
+## FFmpeg NVIDIA GPU Acceleration installation (currently not working with this script.)
+
+<https://docs.nvidia.com/video-technologies/video-codec-sdk/ffmpeg-with-nvidia-gpu/>
