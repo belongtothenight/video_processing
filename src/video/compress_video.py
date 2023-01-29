@@ -33,7 +33,7 @@ def s2strdhms(s):
 
 
 class compress_video():
-    def __init__(self, show=True):
+    def __init__(self, show=False):
         if len(sys.argv) < 2:
             print('Please provide a file name.')
             sys.exit()
