@@ -124,7 +124,7 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt 2560x1440 lanczos 
 |   --hd 1    |    ~    | hidden file info                                       |
 |    --cs     |    ~    | clear screen                                           |
 |    --icf    |    ~    | input confirmation                                     |
-|    --rl     |    ~    | remove video path from txt after compressing the video |
+|    --kl     |    ~    | remove video path from txt after compressing the video |
 |    --rov    | delete  | recycle(temporary) old video                           |
 
 

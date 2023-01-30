@@ -61,7 +61,7 @@ class compress_video():
         --cs: clear screen
         --icf: input confirmation
         == FILE ===============================================================
-        --rl: remove log
+        --kl: remove log
             remove the log file after the video is scaled
         --rov: recycle old video
             recycle the original video after the video is scaled
@@ -98,7 +98,7 @@ class compress_video():
         --cs: clear screen\n\
         --icf: input confirmation\n\
         == FILE ===============================================================\n\
-        --rl: remove log\n\
+        --kl: remove log\n\
             remove the log file after the video is scaled\n\
         --rov: recycle old video\n\
             recycle the original video after the video is scaled\n\
