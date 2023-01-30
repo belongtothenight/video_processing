@@ -2,6 +2,9 @@
 
 This is the detail of each python files.
 
+1. ADD GPU compute option
+2. Change scripts to be a standard library with specified arguments to do different tasks.
+
 ## AnchorLink
 
 1. [compress_video.py](#1)
