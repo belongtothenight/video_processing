@@ -6,6 +6,7 @@ This is the detail of each python files.
 
 1. [compress_video.py](#1)
 2. [list_file.py](#2)
+3. [scale_video.py](#3)
 
 ## <a name="1"></a>compress_video.py
 
@@ -13,14 +14,14 @@ Batch re-encode video files to reduce their size.
 
 ### requirement
 
-1. windows: python, python-send2trash, ffmpeg
-2. linux: python, python-send2trash, ffmpeg
+1. Windows: python, python-send2trash, ffmpeg
+2. Linux: python, python-send2trash, ffmpeg
 
 ### execute command
 
-1. Windows Commend: python "full path of this file" "full path of file list file"<br>
+1. Windows Command: python "full path of this file" "full path of file list file"<br>
 EX: python compress_video.py %userprofile%\Videos\test_files.txt
-2. Linux Commend: python "full path of this file" "full path of file list file" -linux<br>
+2. Linux Command: python "full path of this file" "full path of file list file" -linux<br>
 EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 
 ### command parameter
@@ -98,6 +99,31 @@ Sample export txt (mp4_files.txt) content:
 D:/1.mp4
 D:/videos/2.mp4
 ```
+
+## <a name="3"></a>scale_video.py
+
+Scale up or down videos in batch.
+
+### execute command
+
+1. Windows Command: python "full path of this file" "full path of file list file" "scale" "algorithm"<br>
+EX: python scale_video.py %userprofile%\Videos\test_files.txt 2560x1440 lanczos
+1. Linux Command: python "full path of this file" "full path of file list file" "scale" "algorithm" -linux<br>
+EX: python compress_video.py /home/cdc/Desktop/test_files.txt 2560x1440 lanczos -linux
+
+### command parameter
+
+|  param  |       default        | description                                            |
+| :-----: | :------------------: | ------------------------------------------------------ |
+| --help  |          ~           | print help info                                        |
+| --linux |       windows        | operation system                                       |
+| --hd 0  |          ~           | hidden file info + length + ETA + Uptime               |
+| --hd 1  |          ~           | hidden file info                                       |
+|  --cs   |          ~           | clear screen                                           |
+|  --icf  |          ~           | input confirmation                                     |
+|  --rl   |          ~           | remove video path from txt after compressing the video |
+|  --rov  |        delete        | recycle(temporary) old video                           |
+
 
 ### possible improvement
 

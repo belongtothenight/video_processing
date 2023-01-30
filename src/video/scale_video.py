@@ -51,19 +51,19 @@ class compress_video():
         '''
         Parameters:
         == COMMAND ===========================================================
-        -help: help
+        --help: help
         == SYSTEM =============================================================
-        -linux: use linux shell
+        --linux: use linux shell
         == DISPLAY ============================================================
-        -hd: hide display 
+        --hd: hide display 
             0: hide the video path
             1: hide the progress
-        -cs: clear screen
-        -icf: input confirmation
+        --cs: clear screen
+        --icf: input confirmation
         == FILE ===============================================================
-        -rl: remove log
+        --rl: remove log
             remove the log file after the video is scaled
-        -rov: recycle old video
+        --rov: recycle old video
             recycle the original video after the video is scaled
         sys.argv[1]: the path of the log file (contains the video paths, required)
         == SCALE ==============================================================
@@ -88,19 +88,19 @@ class compress_video():
         helpMessage = '\
         Parameters:\n\
         == COMMAND ===========================================================\n\
-        -help: help\n\
+        --help: help\n\
         == SYSTEM =============================================================\n\
-        -linux: use linux shell\n\
+        --linux: use linux shell\n\
         == DISPLAY ============================================================\n\
-        -hd: hide display\n\
+        --hd: hide display\n\
             0: hide the video path\n\
             1: hide the progress\n\
-        -cs: clear screen\n\
-        -icf: input confirmation\n\
+        --cs: clear screen\n\
+        --icf: input confirmation\n\
         == FILE ===============================================================\n\
-        -rl: remove log\n\
+        --rl: remove log\n\
             remove the log file after the video is scaled\n\
-        -rov: recycle old video\n\
+        --rov: recycle old video\n\
             recycle the original video after the video is scaled\n\
         sys.argv[1]: the path of the log file (contains the video paths, required)\n\
         == SCALE ==============================================================\n\
