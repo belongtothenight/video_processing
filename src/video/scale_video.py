@@ -61,8 +61,8 @@ class compress_video():
         --cs: clear screen
         --icf: input confirmation
         == FILE ===============================================================
-        --kl: remove log
-            remove the log file after the video is scaled
+        --kl: keep log
+            keep the log file after the video is scaled
         --rov: recycle old video
             recycle the original video after the video is scaled
         sys.argv[1]: the path of the log file (contains the video paths, required)
