@@ -65,11 +65,12 @@ execute command: python compress_video.py test.txt
 
 ### possible improvement
 
-Add a central file database to keep record of processed files.
+1. Add a central file database to keep record of processed files.
+2. Rework on arguments.
 
 ## <a name="2"></a>list_file.py
 
-Export a txt file containing filepath of files with specified format.
+Export a txt file containing file path of files with the specified format.
 
 ### requirement
 
@@ -130,7 +131,7 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt 2560x1440 lanczos 
 
 ### possible improvement
 
-Add an option of file create/modify date, and list out all files after(before?) that.
+1. Change records lines.
 
 ## FFmpeg NVIDIA GPU Acceleration installation (currently not working with this script.)
 
