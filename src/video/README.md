@@ -113,16 +113,19 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt 2560x1440 lanczos 
 
 ### command parameter
 
-|  param  |       default        | description                                            |
-| :-----: | :------------------: | ------------------------------------------------------ |
-| --help  |          ~           | print help info                                        |
-| --linux |       windows        | operation system                                       |
-| --hd 0  |          ~           | hidden file info + length + ETA + Uptime               |
-| --hd 1  |          ~           | hidden file info                                       |
-|  --cs   |          ~           | clear screen                                           |
-|  --icf  |          ~           | input confirmation                                     |
-|  --rl   |          ~           | remove video path from txt after compressing the video |
-|  --rov  |        delete        | recycle(temporary) old video                           |
+|    param    | default | description                                            |
+| :---------: | :-----: | ------------------------------------------------------ |
+| sys.argv[1] |    ~    | file log path                                          |
+| sys.argv[2] |    ~    | scale size                                             |
+| sys.argv[3] |    ~    | algorithm (bilinear/bicubic/lanczos)                   |
+|   --help    |    ~    | print help info                                        |
+|   --linux   | windows | operation system                                       |
+|   --hd 0    |    ~    | hidden file info + length + ETA + Uptime               |
+|   --hd 1    |    ~    | hidden file info                                       |
+|    --cs     |    ~    | clear screen                                           |
+|    --icf    |    ~    | input confirmation                                     |
+|    --rl     |    ~    | remove video path from txt after compressing the video |
+|    --rov    | delete  | recycle(temporary) old video                           |
 
 
 ### possible improvement
