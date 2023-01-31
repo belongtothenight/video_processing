@@ -116,8 +116,8 @@ D:/videos/2.mp4
 
 1. Windows Command: python "full path of this file" "full path of file list file" "scale" "algorithm"<br>
 EX: python scale_video.py %userprofile%\Videos\test_files.txt 2560x1440 lanczos
-1. Linux Command: python "full path of this file" "full path of file list file" "scale" "algorithm" -linux<br>
-EX: python compress_video.py /home/cdc/Desktop/test_files.txt 2560x1440 lanczos -linux
+1. Linux Command: python "full path of this file" "full path of file list file" "scale" "algorithm" --linux<br>
+EX: python compress_video.py /home/cdc/Desktop/test_files.txt 2560x1440 lanczos --linux
 
 ### command parameter
 
