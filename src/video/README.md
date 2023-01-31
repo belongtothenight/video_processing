@@ -2,9 +2,6 @@
 
 This is the detail of each python files.
 
-1. ADD GPU compute option
-2. Change scripts to be a standard library with specified arguments to do different tasks.
-
 ## AnchorLink
 
 1. [compress_video.py](#1)
@@ -13,7 +10,8 @@ This is the detail of each python files.
 
 ## <a name="1"></a>compress_video.py
 
-Batch re-encode video files to reduce their size.
+<details open>
+<summary>Batch re-encode video files to reduce their size.</summary>
 
 ### requirement
 
@@ -71,9 +69,12 @@ execute command: python compress_video.py test.txt
 1. Add a central file database to keep record of processed files.
 2. Rework on arguments.
 
+</details>
+
 ## <a name="2"></a>list_file.py
 
-Export a txt file containing file path of files with the specified format.
+<details open>
+<summary>Export a txt file containing file path of files with the specified format.</summary>
 
 ### requirement
 
@@ -104,9 +105,12 @@ D:/1.mp4
 D:/videos/2.mp4
 ```
 
+</details>
+
 ## <a name="3"></a>scale_video.py
 
-Scale up or down videos in batch.
+<details open>
+<summary>Scale up or down videos in batch.</summary>
 
 ### execute command
 
@@ -136,6 +140,13 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt 2560x1440 lanczos 
 
 1. Change records lines.
 
+</details>
+
 ## FFmpeg NVIDIA GPU Acceleration installation (currently not working with this script.)
 
 <https://docs.nvidia.com/video-technologies/video-codec-sdk/ffmpeg-with-nvidia-gpu/>
+
+## Major Possible Improvement
+
+1. ADD GPU compute option
+2. Change scripts to be a standard library with specified arguments to do different tasks.
