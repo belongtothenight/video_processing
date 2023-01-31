@@ -148,5 +148,6 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt 2560x1440 lanczos 
 
 ## Major Possible Improvement
 
-1. ADD GPU compute option
-2. Change scripts to be a standard library with specified arguments to do different tasks.
+1. Add GPU compute option.
+2. Change scripts to be a standard library with specified arguments to do different tasks. (separate duplicate functions to lib files)
+3. Add CPU and GPU computes simultaneously option.
