@@ -44,10 +44,11 @@ class compress_video():
         # sys.argv[?] hidden file info + length + ETA ("-h0")
         # sys.argv[?] hidden file info ("-h1")
         # sys.argv[?] auto clear screen ("-ac")
+        # sys.argv[?] use gpu ("-gpu")
 
         # check parameter error
         possible_parameters = ['-remove_log',
-                               '-linux', '-del', '-h0', '-h1', '-ac']
+                               '-linux', '-del', '-h0', '-h1', '-ac', '-gpu']
         for i in range(2, len(sys.argv)):
             if sys.argv[i] not in possible_parameters:
                 print('\nParameter error.')
@@ -62,6 +63,7 @@ class compress_video():
         self.h0 = False
         self.h1 = False
         self.ac = False
+        self.gpu = False
 
         # check for parameters
         if '-remove_log' in sys.argv:
@@ -76,6 +78,8 @@ class compress_video():
             self.h1 = True
         if '-ac' in sys.argv:
             self.ac = True
+        if '-gpu' in sys.argv:
+            self.gpu = True
 
         # op based parameters
         if self.shell:
@@ -95,6 +99,7 @@ class compress_video():
             print('-h0: ' + str(self.h0))
             print('-h1: ' + str(self.h1))
             print('-ac: ' + str(self.ac))
+            print('-gpu: ' + str(self.gpu))
             print('\n')
             if input('Enter [y] to continue... ') != 'y':
                 print('\nExit.')
@@ -361,8 +366,15 @@ class compress_video():
             '''
             compress video
             '''
-            ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -i "{0}" -vcodec h264 -acodec aac "{1}"'.format(
-                self.video_path, self.nvideo_path)
+            if self.gpu:
+                ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -i "{0}" -vcodec h264_nvenc -acodec aac "{1}"'.format(
+                    self.video_path, self.nvideo_path)
+                # want decoding to be done on the GPU too, but it's relatively slow
+                # ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -hwaccel cuda -c:v h264_cuvid -i "{0}" -c:v h264_nvenc -c:a aac "{1}"'.format(
+                #     self.video_path, self.nvideo_path)
+            else:
+                ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -i "{0}" -vcodec h264 -acodec aac "{1}"'.format(
+                    self.video_path, self.nvideo_path)
             # https://stackoverflow.com/questions/4951099/getting-progress-message-from-a-subprocess
             p = subprocess.Popen(
                 ffmpeg_cmd, shell=self.shell, stdout=subprocess.PIPE)
