@@ -367,10 +367,12 @@ class compress_video():
             compress video
             '''
             if self.gpu:
+                # really bad quality, can't be modified or improved, due to the nature of the codec (hardware accelerated)
+                # https://video.stackexchange.com/questions/29659/is-there-a-way-to-improve-h264-nvenc-output-quality
                 ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -i "{0}" -vcodec h264_nvenc -acodec aac "{1}"'.format(
                     self.video_path, self.nvideo_path)
                 # want decoding to be done on the GPU too, but it's relatively slow
-                # ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -hwaccel cuda -c:v h264_cuvid -i "{0}" -c:v h264_nvenc -c:a aac "{1}"'.format(
+                # ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -hwaccel cuda -i "{0}" -c:v h264_cuvid -c:a aac "{1}"'.format(
                 #     self.video_path, self.nvideo_path)
             else:
                 ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -i "{0}" -vcodec h264 -acodec aac "{1}"'.format(
