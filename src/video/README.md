@@ -35,6 +35,8 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
 |     -h0     |     display all      | hidden file info + length + ETA + Uptime               |
 |     -h1     |     display all      | hidden file info                                       |
 |     -ac     | doesn't clear screen | auto clear screen                                      |
+|    -gpu     |         cpu          | use GPU to compute with hardware acceleration          |
+
 
 ### Installation
 
