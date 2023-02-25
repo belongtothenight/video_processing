@@ -361,10 +361,10 @@ class compress_video():
                 percentage = str(format(percentage, '.4f'))
             saved = format((self.prepsize-self.postpsize)/(2**23), '10.4f')
             if self.h0 and self.h1:
-                l = '{0} >> {1} >> ratio: {2}% >> saved {3}MB >> compressed {4}'.format(
+                l = '{0} >> {1} >> scaled {4}'.format(
                     self.fileName, currenttime(), percentage, saved, os.path.basename(self.video_path))
                 print(l)
-            l = '{0} >> {1} >> ratio: {2}% >> saved {3}MB >> compressed {4}'.format(
+            l = '{0} >> {1} >> scaled {4}'.format(
                 self.fileName, currenttime(), percentage, saved, self.video_path)
             with open(self.recordPath, 'a', encoding='utf-8') as f:
                 f.write(l + '\n')
@@ -404,12 +404,12 @@ class compress_video():
             f3()
             f4()
             # f5()
-            f6()
+            # f6()
             f7()
             if not test:
                 f8()
                 f9()
-            f10()
+            # f10()
             # f11()
             if f12() == 1:
                 break
