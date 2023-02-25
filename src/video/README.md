@@ -4,11 +4,11 @@ This is the detail of each python files.
 
 ## AnchorLink
 
-1. [compress_video.py](#1)
+1. [reEncode_video.py](#1)
 2. [list_file.py](#2)
 3. [scale_video.py](#3)
 
-## <a name="1"></a>compress_video.py
+## <a name="1"></a>reEncode_video.py
 
 <details open>
 <summary>Batch re-encode video files to reduce their size.</summary>
@@ -20,23 +20,21 @@ This is the detail of each python files.
 
 ### execute command
 
-1. Windows Command: python "full path of this file" "full path of file list file"<br>
-EX: python compress_video.py %userprofile%\Videos\test_files.txt
-2. Linux Command: python "full path of this file" "full path of file list file" -linux<br>
-EX: python compress_video.py /home/cdc/Desktop/test_files.txt -linux
+python reEncode_video.py <file_name> [options]
+EX: python compress_video.py "%userprofile%\Videos\test_files.txt" --linux
 
 ### command parameter
 
-|    param    |       default        | description                                            |
-| :---------: | :------------------: | ------------------------------------------------------ |
-|   -linux    |       windows        | operation system                                       |
-| -remove_log |    doesn't remove    | remove video path from txt after compressing the video |
-|    -del     |       recycle        | delete(permanent) or recycle(temporary) old video      |
-|     -h0     |     display all      | hidden file info + length + ETA + Uptime               |
-|     -h1     |     display all      | hidden file info                                       |
-|     -ac     | doesn't clear screen | auto clear screen                                      |
-|    -gpu     |         cpu          | use GPU to compute with hardware acceleration          |
-
+|  param  | description                            |
+| :-----: | :------------------------------------- |
+| --nrmfl | not remove file list of processed file |
+| --linux | linux os system                        |
+|  --rc   | recycle but delete old video           |
+| --hd 0  | hidden file info + length + ETA        |
+| --hd 1  | hidden file info                       |
+| --nacs  | not auto clear screen                  |
+|  --gpu  | select GPU compute                     |
+|  --sp   | show selected parameters               |
 
 ### Installation
 
