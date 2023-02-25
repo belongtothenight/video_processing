@@ -11,7 +11,7 @@ This is the detail of each python files.
 ## <a name="1"></a>reEncode_video.py
 
 <details open>
-<summary>Batch re-encode video files to reduce their size.</summary>
+<summary>Batch re-encode video files and possibly reduce their size.</summary>
 
 ### requirement
 
@@ -92,17 +92,16 @@ After execution, answer the questions:
 | Enter the path to export file log:             | D:/mp4_files.txt |
 | Enter the format of files to export:           | mp4              |
 
-Sample file structure:<br>
-D:<br>
-|-1.mp4<br>
-|-videos<br>
-&nbsp;&nbsp;&nbsp;&nbsp;|-2.mp4<br>
+```
+Sample_file_structure:
+C:.
+|   1.mp4
+\---subFolder
+        2.mp4
 
 Sample export txt (mp4_files.txt) content:
-
-```
-D:/1.mp4
-D:/videos/2.mp4
+C:\1.mp4
+C:\subFolder\2.mp4
 ```
 
 </details>
