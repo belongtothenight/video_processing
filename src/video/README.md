@@ -20,7 +20,7 @@ This is the detail of each python files.
 
 ### execute command
 
-python reEncode_video.py <file_name> [options]
+python reEncode_video.py <file_name> [options]<br>
 EX: python compress_video.py "%userprofile%\Videos\test_files.txt" --linux
 
 ### command parameter
