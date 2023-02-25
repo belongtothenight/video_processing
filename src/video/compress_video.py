@@ -38,19 +38,19 @@ class compress_video():
         if len(sys.argv) < 2:
             print('Please provide a file name.')
             sys.exit()
-        # sys.argv[1] is the path and name to the video file log
-        # sys.argv[?] not remove file list of processed files ("--nrmfl")
-        # sys.argv[?] linux os (linux: "--linux")
-        # sys.argv[?] recycle old video ("--rc")
-        # sys.argv[?] hidden file info + length + ETA ("--hd 0")
-        # sys.argv[?] hidden file info ("--hd 1")
-        # sys.argv[?] not auto clear screen ("--nacs")
-        # sys.argv[?] use gpu ("--gpu")
-        # sys.argv[?] show parameters ("--sp")
+        # sys.argv[1] path and name to the video file log
+        # sys.argv[?] ("--nrmfl")  not remove file list of processed files
+        # sys.argv[?] ("--linux")  linux os
+        # sys.argv[?] ("--rc")     recycle old video
+        # sys.argv[?] ("--hd 0")   hidden file info + length + ETA
+        # sys.argv[?] ("--hd 1")   hidden file info
+        # sys.argv[?] ("--nacs")   not auto clear screen
+        # sys.argv[?] ("--gpu")    use gpu
+        # sys.argv[?] ("--sp")     show parameters
 
         availableShortOptions = ""
         availableLongOptions = ["nrmfl", "linux",
-                                "rc", "hd=", "nacs", "gpu", "sp"]
+                                "rc", "hd=", "nacs", "gpu", "sp", "help"]
         try:
             opts, args = getopt.getopt(
                 sys.argv[2:], availableShortOptions, availableLongOptions)
@@ -64,6 +64,24 @@ class compress_video():
             except:
                 pass
             sys.exit()
+
+        # help info
+        if opts != []:
+            if '--help' in opts[0]:
+                print('\nHelp message:')
+                print('sys.argv[1] path and name to the video file log')
+                print(
+                    'sys.argv[?] ("--nrmfl")  not remove file list of processed files')
+                print('sys.argv[?] ("--linux")  linux os')
+                print('sys.argv[?] ("--rc")     recycle old video')
+                print(
+                    'sys.argv[?] ("--hd 0")   hidden file info + length + ETA')
+                print('sys.argv[?] ("--hd 1")   hidden file info')
+                print('sys.argv[?] ("--nacs")   not auto clear screen')
+                print('sys.argv[?] ("--gpu")    use gpu')
+                print('sys.argv[?] ("--sp")     show parameters')
+                print('\n')
+                sys.exit()
 
         # initialize variables
         self.file_name = sys.argv[0]
