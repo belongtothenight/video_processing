@@ -33,7 +33,7 @@ EX: python compress_video.py "%userprofile%\Videos\test_files.txt" --linux
 | --hd 0  | hidden file info + length + ETA        |
 | --hd 1  | hidden file info                       |
 | --nacs  | not auto clear screen                  |
-|  --gpu  | select GPU compute                     |
+|  --gpu  | select GPU compute (NVIDIA)            |
 |  --sp   | show selected parameters               |
 
 ### Installation
@@ -141,12 +141,13 @@ EX: python compress_video.py /home/cdc/Desktop/test_files.txt 2560x1440 lanczos 
 
 </details>
 
-## FFmpeg NVIDIA GPU Acceleration installation (currently not working with this script.)
+## FFmpeg NVIDIA GPU Acceleration installation
 
 <https://docs.nvidia.com/video-technologies/video-codec-sdk/ffmpeg-with-nvidia-gpu/>
 
+[GYAN](https://www.gyan.dev/ffmpeg/builds/) build is built with all kinds of supports like CUDA, so there is no need for installing or building it in local machine.
+
 ## Major Possible Improvement
 
-1. Add GPU compute option.
-2. Change scripts to be a standard library with specified arguments to do different tasks. (separate duplicate functions to lib files)
-3. Add CPU and GPU computes simultaneously option.
+1. Change scripts to be a standard library with specified arguments to do different tasks. (separate duplicate functions to lib files)
+2. Add CPU and GPU computes simultaneously option.
