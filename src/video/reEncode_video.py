@@ -37,21 +37,21 @@ class compress_video():
     def __init__(self, show=False):
         '''
         sys.argv[1] path and name to the video file log
-        sys.argv[?] ("--nrmfl")  not remove file list of processed files
-        sys.argv[?] ("--linux")  linux os
-        sys.argv[?] ("--rc")     recycle old video
-        sys.argv[?] ("--hd 0")   hidden file info + length + ETA
-        sys.argv[?] ("--hd 1")   hidden file info
-        sys.argv[?] ("--nacs")   not auto clear screen
-        sys.argv[?] ("--gpu")    use gpu
-        sys.argv[?] ("--sp")     show parameters
+        sys.argv[?] (--nrmfl)  not remove file list of processed files
+        sys.argv[?] (--linux)  linux os
+        sys.argv[?] (--rc)     recycle old video
+        sys.argv[?] (--hd 0)   hidden file info + length + ETA
+        sys.argv[?] (--hd 1)   hidden file info
+        sys.argv[?] (--nacs)   not auto clear screen
+        sys.argv[?] (--gpu)    use gpu
+        sys.argv[?] (--sp)     show parameters
         '''
         if len(sys.argv) < 2:
             print('Please provide a file name.')
             sys.exit()
         availableShortOptions = ""
         availableLongOptions = ["nrmfl", "linux",
-                                "rc", "hd=", "nacs", "gpu", "sp", "help"]
+                                "rc", "hd=", "nacs", "gpu", "sp"]
         try:
             opts, args = getopt.getopt(
                 sys.argv[2:], availableShortOptions, availableLongOptions)
@@ -67,20 +67,27 @@ class compress_video():
             sys.exit()
 
         # help info
-        if opts != []:
-            if '--help' in opts[0]:
-                print('\nHelp message:')
+        if sys.argv[1:] != []:
+            if '--help' in sys.argv[1]:
+                print('\nUsage:')
+                print(f'python {sys.argv[0]} <file_name> [options]')
+                print('\nPurpose:')
+                print('1. Re-encode video files for unified video and audio codec.')
+                print('2. Reduce file size with CPU compute.')
+                print('\nInfo:')
+                print('CPU compute: Slow, dynamic encoding, reduce file size.')
+                print('GPU compute: Fast, static encoding, increase file size.')
+                print('\nArguments:')
                 print('sys.argv[1] path and name to the video file log')
                 print(
-                    'sys.argv[?] ("--nrmfl")  not remove file list of processed files')
-                print('sys.argv[?] ("--linux")  linux os')
-                print('sys.argv[?] ("--rc")     recycle old video')
-                print(
-                    'sys.argv[?] ("--hd 0")   hidden file info + length + ETA')
-                print('sys.argv[?] ("--hd 1")   hidden file info')
-                print('sys.argv[?] ("--nacs")   not auto clear screen')
-                print('sys.argv[?] ("--gpu")    use gpu')
-                print('sys.argv[?] ("--sp")     show parameters')
+                    'sys.argv[?] (--nrmfl)  not remove file list of processed files')
+                print('sys.argv[?] (--linux)  linux os')
+                print('sys.argv[?] (--rc)     recycle old video')
+                print('sys.argv[?] (--hd 0)   hidden file info + length + ETA')
+                print('sys.argv[?] (--hd 1)   hidden file info')
+                print('sys.argv[?] (--nacs)   not auto clear screen')
+                print('sys.argv[?] (--gpu)    use gpu')
+                print('sys.argv[?] (--sp)     show parameters')
                 print('\n')
                 sys.exit()
 
@@ -257,11 +264,8 @@ class compress_video():
             if self.gpu:
                 # really bad quality, can't be modified or improved, due to the nature of the codec (hardware accelerated)
                 # https://video.stackexchange.com/questions/29659/is-there-a-way-to-improve-h264-nvenc-output-quality
-                ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -i "{0}" -vcodec h264_nvenc -acodec aac "{1}"'.format(
+                ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -i "{0}" -vcodec h264_nvenc -b:v 0 -acodec aac "{1}"'.format(
                     self.video_path, self.nvideo_path)
-                # want decoding to be done on the GPU too, but it's relatively slow
-                # ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -hwaccel cuda -i "{0}" -c:v h264_cuvid -c:a aac "{1}"'.format(
-                #     self.video_path, self.nvideo_path)
             else:
                 ffmpeg_cmd = 'ffmpeg -v quiet -stats -y -i "{0}" -vcodec h264 -acodec aac "{1}"'.format(
                     self.video_path, self.nvideo_path)
@@ -347,15 +351,15 @@ class compress_video():
             if self.progress >= self.total:
                 return 1
             print()
+
+        self.progress = 0
+        self.total = len(self.lines)
+        while True:
             if self.ac:
                 if self.shell:
                     os.system('clear')
                 else:
                     os.system('cls')
-
-        self.progress = 0
-        self.total = len(self.lines)
-        while True:
             self.progress += 1
             if f1() == 1:
                 break
