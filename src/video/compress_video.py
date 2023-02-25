@@ -35,19 +35,20 @@ def s2strdhms(s):
 
 class compress_video():
     def __init__(self, show=False):
+        '''
+        sys.argv[1] path and name to the video file log
+        sys.argv[?] ("--nrmfl")  not remove file list of processed files
+        sys.argv[?] ("--linux")  linux os
+        sys.argv[?] ("--rc")     recycle old video
+        sys.argv[?] ("--hd 0")   hidden file info + length + ETA
+        sys.argv[?] ("--hd 1")   hidden file info
+        sys.argv[?] ("--nacs")   not auto clear screen
+        sys.argv[?] ("--gpu")    use gpu
+        sys.argv[?] ("--sp")     show parameters
+        '''
         if len(sys.argv) < 2:
             print('Please provide a file name.')
             sys.exit()
-        # sys.argv[1] path and name to the video file log
-        # sys.argv[?] ("--nrmfl")  not remove file list of processed files
-        # sys.argv[?] ("--linux")  linux os
-        # sys.argv[?] ("--rc")     recycle old video
-        # sys.argv[?] ("--hd 0")   hidden file info + length + ETA
-        # sys.argv[?] ("--hd 1")   hidden file info
-        # sys.argv[?] ("--nacs")   not auto clear screen
-        # sys.argv[?] ("--gpu")    use gpu
-        # sys.argv[?] ("--sp")     show parameters
-
         availableShortOptions = ""
         availableLongOptions = ["nrmfl", "linux",
                                 "rc", "hd=", "nacs", "gpu", "sp", "help"]
