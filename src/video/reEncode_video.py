@@ -45,13 +45,14 @@ class compress_video():
         sys.argv[?] (--nacs)   not auto clear screen
         sys.argv[?] (--gpu)    use gpu
         sys.argv[?] (--sp)     show parameters
+        sys.argv[?] (--dt)     delay time (hours)
         '''
         if len(sys.argv) < 2:
             print('Please provide a file name.')
             sys.exit()
         availableShortOptions = ""
         availableLongOptions = ["nrmfl", "linux",
-                                "rc", "hd=", "nacs", "gpu", "sp"]
+                                "rc", "hd=", "nacs", "gpu", "sp", "dt="]
         try:
             opts, args = getopt.getopt(
                 sys.argv[2:], availableShortOptions, availableLongOptions)
@@ -88,6 +89,7 @@ class compress_video():
                 print('sys.argv[?] (--nacs)   not auto clear screen')
                 print('sys.argv[?] (--gpu)    use gpu')
                 print('sys.argv[?] (--sp)     show parameters')
+                print('sys.argv[?] (--dt)     delay time (hours)')
                 print('\n')
                 sys.exit()
 
@@ -121,6 +123,8 @@ class compress_video():
                 self.gpu = True
             if opt in ('--sp'):
                 show = True
+            if opt in ('--dt'):
+                self.delay_time = float(arg)
 
         # op based parameters
         if self.shell:
@@ -142,6 +146,7 @@ class compress_video():
             print('-nacs: ' + str(not self.ac))
             print('-gpu: ' + str(self.gpu))
             print('-sp: ' + str(show))
+            print('-dt: ' + str(self.delay_time))
             print('\n')
             if input('Enter [y] to continue... ') != 'y':
                 print('\nExit.')
@@ -150,6 +155,17 @@ class compress_video():
                 os.system('clear')
             else:
                 os.system('cls')
+
+        # sleep
+        if self.delay_time > 0:
+            wait_seconds = self.delay_time * 3600
+            start = timeit.default_timer()
+            while timeit.default_timer() - start < wait_seconds:
+                time.sleep(1)
+                print(
+                    f'Waited {round((timeit.default_timer() - start)/3600, 4)}/{self.delay_time} hours...', end='\r')
+        else:
+            pass
 
         # start the timer
         self.start_time = timeit.default_timer()
