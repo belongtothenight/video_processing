@@ -103,6 +103,7 @@ class compress_video():
         self.h1 = True
         self.ac = True
         self.gpu = False
+        self.delay_time = 0
 
         # check for parameters
         for opt, arg in opts:
